@@ -1,6 +1,7 @@
 package Views;
 
 import Models.Fisica;
+import Models.Juridica;
 import Service.ClienteService;
 
 import java.util.Scanner;
@@ -14,6 +15,7 @@ public class ClienteView {
         System.out.println("1 - física");
         System.out.println("2 - jurídica");
         int opcao = scanner.nextInt();
+        Menu menu = new Menu();
 
         if(opcao == 1) {
             System.out.println("nome: ");
@@ -26,7 +28,6 @@ public class ClienteView {
             ClienteService cliente = new ClienteService();
             cliente.adicionarCliente(fisica);
             System.out.println("cliente cadastrado");
-            Menu menu = new Menu();
             menu.menu();
         } else if(opcao == 2) {
             System.out.println("nome: ");
@@ -35,11 +36,10 @@ public class ClienteView {
             int idade = scanner.nextInt();
             System.out.println("cnpj: ");
             String cnpj = scanner.next();
-            Fisica juridica = new Fisica(nome, idade, cnpj);
+            Juridica juridica = new Juridica(nome, idade, cnpj);
             ClienteService cliente = new ClienteService();
             cliente.adicionarCliente(juridica);
             System.out.println("cliente cadastrado");
-            Menu menu = new Menu();
             menu.menu();
         }
     }

@@ -16,6 +16,8 @@ public class VendaView {
         System.out.println("cliente: ");
         String nome = scanner.next();
         Pessoa pessoa;
+        Menu menu = new Menu();
+
         for(int i = 0; i < ClienteService.getClientes().size(); i++) {
             if(nome.equals(ClienteService.getClientes().get(i).getNome())) {
                 pessoa = ClienteService.getClientes().get(i);
@@ -29,11 +31,9 @@ public class VendaView {
                 VendaService servico = new VendaService();
                 servico.adicionarVenda(venda);
                 System.out.println("venda cadastrada");
-                Menu menu = new Menu();
                 menu.menu();
             } else {
                 System.out.println("cliente não existe");
-                Menu menu = new Menu();
                 menu.menu();
             }
         }
